@@ -34,10 +34,10 @@ pipeline:
         - package: tools.certifications_loader
           name: CertificationsLoader
           url: ${CERTIFICATIONS_URL}
-    - type: comprehension
-      tools:
-        - package: comprehension.node_comprehender
-          name: NodeComprehender
+#    - type: comprehension
+#      tools:
+#        - package: comprehension.node_comprehender
+#          name: NodeComprehender
 
 llm-model:
   id: chat_groq

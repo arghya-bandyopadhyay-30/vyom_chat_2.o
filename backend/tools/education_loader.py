@@ -8,4 +8,4 @@ class EducationLoader(IngestionTool):
         )
 
     def run(self):
-        pass
+        print("EducationLoader")

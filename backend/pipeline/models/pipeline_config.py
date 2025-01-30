@@ -18,7 +18,6 @@ class PipelineConfig:
             raise ValueError(CONFIG_ERROR.format(config_key=STAGES))
 
         database = DatabaseConfig.from_dict(config[DATABASE_CONFIG])
-
         stages = [cls.stage_builder(stage) for stage in config[STAGES]]
 
         return cls(
@@ -30,7 +29,7 @@ class PipelineConfig:
     def stage_builder(stage: dict):
         if stage[TYPE] == INGESTION:
             return Ingestion.from_dict(stage)
-        elif stage[TYPE] == COMPREHENSION:
-            return COMPREHENSION
+        # elif stage[TYPE] == COMPREHENSION:
+        #     return COMPREHENSION
         else:
             return Stage.from_dict(stage)

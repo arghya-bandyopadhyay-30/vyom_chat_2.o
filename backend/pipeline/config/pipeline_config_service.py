@@ -1,8 +1,9 @@
 from dotenv import load_dotenv
 
-from utils.string_constants import PIPELINE, CONFIG_ERROR
-from utils.load_yaml import load_yaml
+from pipeline.models.config import Config
 from pipeline.models.pipeline_config import PipelineConfig
+from utils.load_yaml import load_yaml
+from utils.string_constants import PIPELINE, CONFIG_ERROR
 
 
 class PipelineConfigService:
@@ -18,4 +19,6 @@ class PipelineConfigService:
             self.config[PIPELINE]
         )
 
-        return pipeline
+        return Config(
+            pipeline=pipeline
+        )

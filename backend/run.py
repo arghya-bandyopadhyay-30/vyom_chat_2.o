@@ -1,12 +1,16 @@
 import argparse
 import asyncio
 
-from config.pipeline_config_service import PipelineConfigService
+from pipeline.config.pipeline_config_service import PipelineConfigService
 
 
 async def run(config_file_path: str = "config.yml"):
     config = PipelineConfigService(config_path=config_file_path).get_config()
-    print(config)
+    await run_task(config)
+
+async def run_task(config):
+    for stage in config.pipeline.stages:
+        stage.run()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Pipeline Configuration Runner")

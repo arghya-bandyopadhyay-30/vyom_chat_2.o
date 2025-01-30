@@ -26,4 +26,5 @@ class Ingestion(Stage):
 
 
     def run(self):
-        pass
+        for tool in self.tools:
+            tool.run()
