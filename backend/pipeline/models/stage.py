@@ -8,11 +8,11 @@ class Stage:
     stage_type: str
 
     @classmethod
-    def from_dict(cls, config: dict):
-        if TYPE not in config:
+    def from_dict(cls, stage: dict):
+        if TYPE not in stage:
             raise ValueError(CONFIG_ERROR.format(config_key=TYPE))
 
-        return cls(stage_type=config[TYPE])
+        return cls(stage_type=stage[TYPE])
 
     @abstractmethod
     def run(self):

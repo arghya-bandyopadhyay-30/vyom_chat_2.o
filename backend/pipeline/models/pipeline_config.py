@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+from pipeline.models.comprehension_config import Comprehension
 from pipeline.models.database_config import DatabaseConfig
 from pipeline.models.ingestion_config import Ingestion
 from pipeline.models.stage import Stage
@@ -29,7 +30,7 @@ class PipelineConfig:
     def stage_builder(stage: dict):
         if stage[TYPE] == INGESTION:
             return Ingestion.from_dict(stage)
-        # elif stage[TYPE] == COMPREHENSION:
-        #     return COMPREHENSION
+        elif stage[TYPE] == COMPREHENSION:
+            return Comprehension.from_dict(stage)
         else:
             return Stage.from_dict(stage)
