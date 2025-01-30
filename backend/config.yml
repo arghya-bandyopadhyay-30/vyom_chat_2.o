@@ -7,31 +7,31 @@ pipeline:
   stages:
     - type: ingestion
       tools:
-        - package: ingestion.person_loader
+        - package: tools.person_loader
           name: PersonLoader
           url: ${PERSON_URL}
-        - package: ingestion.education_loader
+        - package: tools.education_loader
           name: EducationLoader
           url: ${EDUCATION_URL}
-        - package: ingestion.experience_loader
+        - package: tools.experience_loader
           name: ExperienceLoader
           url: ${EXPERIENCE_URL}
-        - package: ingestion.language_loader
+        - package: tools.language_loader
           name: LanguageLoader
           url: ${LANGUAGE_URL}
-        - package: ingestion.honour_awards_loader
-          name: HonourAndAwardsLoader
+        - package: tools.honour_awards_loader
+          name: HonourAwardsLoader
           url: ${HONOUR_AWARDS_URL}
-        - package: ingestion.recommendation_loader
+        - package: tools.recommendation_loader
           name: RecommendationLoader
           url: ${RECOMMENDATION_URL}
-        - package: ingestion.blog_loader
+        - package: tools.blog_loader
           name: BlogLoader
           url: ${BLOG_URL}
-        - package: ingestion.projects_loader
+        - package: tools.projects_loader
           name: ProjectsLoader
           url: ${PROJECTS_URL}
-        - package: ingestion.certifications_loader
+        - package: tools.certifications_loader
           name: CertificationsLoader
           url: ${CERTIFICATIONS_URL}
     - type: comprehension

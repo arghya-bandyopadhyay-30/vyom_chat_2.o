@@ -1,2 +1,11 @@
-class PersonLoader:
-    pass
+from tools.ingestion_tool import IngestionTool
+
+
+class PersonLoader(IngestionTool):
+    def __init__(self, url: str):
+        super().__init__(
+            url=url
+        )
+
+    def run(self):
+        pass

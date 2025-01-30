@@ -6,6 +6,7 @@ from config.pipeline_config_service import PipelineConfigService
 
 async def run(config_file_path: str = "config.yml"):
     config = PipelineConfigService(config_path=config_file_path).get_config()
+    print(config)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Pipeline Configuration Runner")

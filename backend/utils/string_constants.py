@@ -14,7 +14,13 @@ COMPREHENSION="comprehension"
 TYPE="type"
 TOOLS="tools"
 
+# Tools Constants
+PACKAGE="package"
+NAME="name"
+URL="url"
+
 # Errors
-CONFIG_ERROR= "Pipeline must have '{config_key}' key"
+CONFIG_ERROR= "Pipelines must have '{config_key}' key"
 STAGE_TYPE_ERROR="Unknown stage type: {type}"
-STAGE_ERROR="Stage must have '{config_key}' key"
+STAGE_ERROR="Stages must have '{config_key}' key"
+TOOL_ERROR="Tools must have '{config_key}' key"

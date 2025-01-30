@@ -1,9 +1,12 @@
-from pipeline.models.ingestion_tool import IngestionTool
+from dataclasses import dataclass
+
 from pipeline.models.stage import Stage
+from tools.ingestion_tool import IngestionTool
 from tools.utils.tools_builder import tools_builder
 from utils.string_constants import TYPE, TOOLS, STAGE_ERROR
 
 
+@dataclass
 class Ingestion(Stage):
     tools: list[IngestionTool]
 
@@ -16,6 +19,10 @@ class Ingestion(Stage):
 
         tools = [tools_builder(tool) for tool in stage[TOOLS]]
 
+        return cls(
+            stage_type=stage[TYPE],
+            tools=tools
+        )
 
 
     def run(self):

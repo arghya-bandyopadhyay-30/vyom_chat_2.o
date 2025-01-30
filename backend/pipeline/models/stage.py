@@ -1,13 +1,11 @@
 from abc import abstractmethod
+from dataclasses import dataclass
 
 from utils.string_constants import CONFIG_ERROR, TYPE, STAGE_TYPE_ERROR
 
-
+@dataclass
 class Stage:
     stage_type: str
-
-    def __init__(self, stage_type: str):
-        self.stage_type = stage_type
 
     @classmethod
     def from_dict(cls, config: dict):
