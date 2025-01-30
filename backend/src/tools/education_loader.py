@@ -1,4 +1,4 @@
-from tools.ingestion_tool import IngestionTool
+from src.tools.ingestion_tool import IngestionTool
 
 
 class EducationLoader(IngestionTool):

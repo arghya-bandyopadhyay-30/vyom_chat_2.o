@@ -11,7 +11,7 @@ class PipelineConfigService:
         load_dotenv()
         self.config = load_yaml(config_path)
 
-    def get_config(self):
+    def get_config(self) -> Config:
         if PIPELINE not in self.config:
             raise ValueError(CONFIG_ERROR.format(config_key=PIPELINE))
 

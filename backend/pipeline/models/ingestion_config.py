@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
 from pipeline.models.stage import Stage
-from tools.ingestion_tool import IngestionTool
-from tools.utils.tools_builder import tools_builder
+from src.tools import IngestionTool
+from src.tools.utils import tools_builder
 from utils.string_constants import TYPE, TOOLS, STAGE_ERROR
 
 
