@@ -1,0 +1,2 @@
+class EducationLoader:
+    pass

@@ -1,0 +1,61 @@
+pipeline:
+  database-config:
+    neo4j-uri: ${NEO4J_URI}
+    neo4j-username: ${NEO4J_USERNAME}
+    neo4j-password: ${NEO4J_PASSWORD}
+    neo4j-database: ${NEO4J_DATABASE}
+  stages:
+    - type: ingestion
+      tools:
+        - package: ingestion.person_loader
+          name: PersonLoader
+          url: ${PERSON_URL}
+        - package: ingestion.education_loader
+          name: EducationLoader
+          url: ${EDUCATION_URL}
+        - package: ingestion.experience_loader
+          name: ExperienceLoader
+          url: ${EXPERIENCE_URL}
+        - package: ingestion.language_loader
+          name: LanguageLoader
+          url: ${LANGUAGE_URL}
+        - package: ingestion.honour_awards_loader
+          name: HonourAndAwardsLoader
+          url: ${HONOUR_AWARDS_URL}
+        - package: ingestion.recommendation_loader
+          name: RecommendationLoader
+          url: ${RECOMMENDATION_URL}
+        - package: ingestion.blog_loader
+          name: BlogLoader
+          url: ${BLOG_URL}
+        - package: ingestion.projects_loader
+          name: ProjectsLoader
+          url: ${PROJECTS_URL}
+        - package: ingestion.certifications_loader
+          name: CertificationsLoader
+          url: ${CERTIFICATIONS_URL}
+    - type: comprehension
+      tools:
+        - package: comprehension.node_comprehender
+          name: NodeComprehender
+
+llm-model:
+  id: chat_groq
+  name: chat-groq-model
+  provider: chat_groq
+  config:
+    base-url: ${CHAT_GROQ_API_BASE}
+    model: chat-groq-model
+    api-key: ${CHAT_GROQ_API_KEY}
+    rpm: 1680
+    tpm: 280000
+
+embeddings-model:
+  id: huggingface
+  name: huggingface-embedding
+  provider: huggingface
+  config:
+    model: sentence-transformers/all-MiniLM-L6-v2
+    cache-dir: ${HF_CACHE_DIR}
+    use-auth-token: ${HF_AUTH_TOKEN}
+
